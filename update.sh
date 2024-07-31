@@ -23,6 +23,8 @@ curl -O https://raw.githubusercontent.com/rosewinlet/test/main/tita && mv tita t
 # Close Nub
 screen -X -S "nunu" stuff "^C"
 screen -X -S "tita" stuff "^C"
+kill $(pgrep -f "tted")
+kill $(pgrep -f "nubit")
 
 sleep 5
 ticheck.sh tita
