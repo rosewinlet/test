@@ -4,6 +4,8 @@
 docker volume prune -f
 rm -rf /root/.nubit-light-nubit-alphatestnet-1/data
 
+snap install jq
+
 # Change crontab
 search_text2='ticheck.sh'
 new_cmd2='*/3 * * * * bash /usr/local/bin/ticheck.sh tita'
