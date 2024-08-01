@@ -4,7 +4,7 @@
 docker volume prune -f
 rm -rf /root/.nubit-light-nubit-alphatestnet-1/data
 
-apt install snapd -y
+apt-get install snapd -y
 snap install jq
 
 # Change crontab
