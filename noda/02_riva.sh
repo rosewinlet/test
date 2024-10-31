@@ -46,4 +46,4 @@ sudo npm i -g rivalz-node-cli@$version
 
 # RUN RIVALZ
 screen -S RIVA -dm bash -c "rivalz run"
-screen -r
+screen -r RIVA
