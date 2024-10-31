@@ -1,11 +1,30 @@
 #!/bin/bash
 
-# Install for RIVALZ node with docker and proxy
+sudo apt install net-tools -y
 
+# -------------------- Download checking script and make it --------------------
+sudo curl -L -o "checkshm.sh" "https://github.com/rosewinlet/test/releases/download/v0.0.1/checkshm.sh"
+
+sudo mv checkshm.sh /usr/local/bin/checkshm.sh
+
+sudo chmod +x /usr/local/bin/checkshm.sh
+
+# Add to crontab 
+# Check and remove previous checknode
+search_text='shm'
+new_cmd='*/15 * * * * bash /usr/local/bin/checkshm.sh shm riva'
+
+# Remove the existing cronjob line if it exists new_cmd
+if crontab -l | grep "$search_text"; then
+        sudo crontab -l | grep -v "$search_text" | crontab -
+fi
+
+# Add the new cronjob with the new schedule
+sudo crontab -l | { cat; echo "$new_cmd"; } | crontab -
+
+
+# -------------------- INSTALLING --------------------
 # Install nodejs
-
-apt install net-tools -y
-
 curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
 sudo apt install -y nodejs
 node --version
@@ -24,6 +43,6 @@ sudo npm i -g rivalz-node-cli@$version
 # See disk serial num
 # sudo lshw -class disk
 
-
 apt-get install screen -y
 screen -S RIVA -dm bash -c "rivalz run"
+screen -r
