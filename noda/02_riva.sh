@@ -1,6 +1,7 @@
 #!/bin/bash
 
 sudo apt install net-tools -y
+sudo apt-get install screen -y
 
 # -------------------- Download checking script and make it --------------------
 sudo curl -L -o "checkshm.sh" "https://github.com/rosewinlet/test/releases/download/v0.0.1/checkshm.sh"
@@ -25,7 +26,7 @@ sudo crontab -l | { cat; echo "$new_cmd"; } | crontab -
 
 # -------------------- INSTALLING --------------------
 # Install nodejs
-curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+sudo curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
 sudo apt install -y nodejs
 node --version
 
@@ -43,6 +44,6 @@ sudo npm i -g rivalz-node-cli@$version
 # See disk serial num
 # sudo lshw -class disk
 
-apt-get install screen -y
+# RUN RIVALZ
 screen -S RIVA -dm bash -c "rivalz run"
 screen -r
