@@ -6,3 +6,6 @@ curl -O https://raw.githubusercontent.com/rosewinlet/test/refs/heads/main/noda/0
 ```
 sudo curl -O https://raw.githubusercontent.com/rosewinlet/test/refs/heads/main/noda/02_riva.sh && sudo chmod u+x 02_riva.sh && sudo bash 02_riva.sh
 ```
+```
+sudo curl -O https://raw.githubusercontent.com/rosewinlet/test/refs/heads/main/noda/03_wp.sh && sudo chmod u+x 03_wp.sh && sudo bash 03_wp.sh
+```
