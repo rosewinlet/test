@@ -101,17 +101,20 @@ VERSION="$TAG_NAME"
 
 # Extract asset names and URLs with the specific pattern
 echo "Parsing release data..."
-ASSET_URL=$(echo "$RELEASE_DATA" | jq -r '.body' | grep -i -E 'Linux.*(Intel|AMD)' | grep -o 'https[^)]*')
+ASSET_NAME=$(echo "$RELEASE_DATA" | jq -r '.assets[] | select(.name | contains("story") and contains("linux") and contains("amd64")) | .name') 
+ASSET_NAME=$(echo $ASSET_NAME | awk '{print $1}')
+ASSET_URL=$(echo "$RELEASE_DATA" | jq -r '.assets[] | select(.name | contains("story") and contains("linux") and contains("amd64")) | .browser_download_url')
+ASSET_URL=$(echo $ASSET_URL | awk '{print $1}')
 
 
 # Start download
-wget -O story-linux-amd64.tar.gz $ASSET_URL
-tar xvf story-linux-amd64.tar.gz
-mv story-linux-amd64*/story .
-sudo chmod +x story
-sudo mv story /usr/local/bin/
+wget -O story-linux-amd64 $ASSET_URL
+#tar xvf story-linux-amd64.tar.gz
+# mv story-linux-amd64*/story .
+sudo chmod +x story-linux-amd64*
+sudo mv story-linux-amd64* /usr/local/bin/story
 story version
-rm story-linux-amd64.tar.gz
+#rm story-linux-amd64.tar.gz
 rm -rf story-linux-amd64*
 
 # ---------- Ended Download STORY ------------
