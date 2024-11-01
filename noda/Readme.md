@@ -9,3 +9,6 @@ sudo curl -O https://raw.githubusercontent.com/rosewinlet/test/refs/heads/main/n
 ```
 sudo curl -O https://raw.githubusercontent.com/rosewinlet/test/refs/heads/main/noda/03_wp.sh && sudo chmod u+x 03_wp.sh && sudo bash 03_wp.sh
 ```
+```
+sudo curl -O https://raw.githubusercontent.com/rosewinlet/test/refs/heads/main/noda/04_story_odys.sh && sudo chmod u+x 04_story_odys.sh && sudo bash 04_story_odys.sh
+```
