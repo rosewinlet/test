@@ -28,6 +28,22 @@ if [ "$version_number" -lt "$min_version_number" ]; then
     exit 1
 fi  
 
+# Do a backup and rm neccessary old node (if existed)
+sudo systemctl stop story
+sudo systemctl stop story-geth
+
+# Backup priv & Remove old data
+cp ~/.story/story/data/priv_validator_state.json ~/.story/priv_validator_state.json.backup
+cp ~/.story/story/config/priv_validator_key.json ~/.story/priv_validator_key.json.backup
+mkdir /opt/storybak
+cp ~/.story/story/config/wallet.txt /opt/storybak
+cp ~/.story/story/config/priv_validator_key.json /opt/storybak
+
+# Remove old node
+rm -rf ~/.story/geth
+rm -rf ~/.story/story
+
+# Start installing the node
 NODE="story"
 DAEMON_HOME="$HOME/.story/story"
 DAEMON_NAME="story"
@@ -136,9 +152,7 @@ sudo chmod +x story-geth
 sudo mv story-geth /usr/local/bin/story-geth
 # ---------- Ended Download GETH ------------
 
-
-#SEEDS="81987895a11f6689ada254c6b57932ab7ed909b6@54.241.167.190:26656,010fb4de28667725a4fef26cdc7f9452cc34b16d@54.176.175.48:26656,e9b4bc203197b62cc7e6a80a64742e752f4210d5@54.193.250.204:26656,68b9145889e7576b652ca68d985826abd46ad660@18.166.164.232:26656"
-
+# Init chain
 # $DAEMON_NAME init --network odyssey  --moniker "${VALIDATOR}"
 story init --network odyssey --moniker "${VALIDATOR}"
 
@@ -212,3 +226,17 @@ if [[ `service $NODE status | grep active` =~ "running" ]]; then
 else
   echo -e "Your $NODE node \e[31mwas not installed correctly\e[39m, please reinstall."
 fi
+
+# Restore the old validator if existed
+sudo /opt/storybak/priv_validator_key.json cp ~/.story/story/config/priv_validator_key.json
+
+
+# Create validator
+# story validator create --stake 1000000000000000000 --private-key "your_private_key"
+
+# Stake here
+# Get info: curl -s localhost:26657/status | jq -r '.result.validator_info' => Get this value: VALIDATOR_PUB_KEY_IN_BASE64 (get in value)
+# story validator stake \
+#    --validator-pubkey "VALIDATOR_PUB_KEY_IN_BASE64" \
+#    --stake 1000000000000000000 \
+#    --private-key xxxxxxxxxxxxxx
