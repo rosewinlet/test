@@ -90,42 +90,40 @@ is_tita_update() {
                 rm -rf tita
                 mv *titan*linux*amd64* ./tita
             fi   
-
+            # Move to bin
+            mv /media/.top/tita/titan-edge /usr/bin/tted
+            mv /media/.top/tita/libgoworkerd.so /usr/local/bin/
+            #--------------------------------------------
+    
+            # Rerun the node
+            # Get node hash
+            # node_hash=$(</media/.top/nohash)
+            # # Check if the variable is not empty
+            # if [ -n "$node_hash" ]; then
+            #     echo "Get no hash ok: $node_hash"
+            # else
+            #     echo "No hash file is empty or does not exist."
+            # fi
+    
+            # Run the command by METHOD: screen session
+            # export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/bin/
+            screen -dmS "$SC_SESSION" bash -c "$INIT_CMD"
+            sleep 5
+            tted daemon stop
+            sleep 5
+            screen -dmS "$SC_SESSION" bash -c "$RUN_CMD"
+    
+            # Run the command by METHOD: daemon nohup
+            # nohup $INIT_CMD  > /tmp/.tita/edge.log 2>&1 &
+            # tted_pid=$!  # Get the PID of the last background process
+            # wait $tted_pid
+    
+            echo "Completely updated tita node!"
+            return 0  # True, update available
         else
             echo "No matching asset found."
             return 1 # False, no update available
         fi
-
-        # Move to bin
-        mv /media/.top/tita/titan-edge /usr/bin/tted
-        mv /media/.top/tita/libgoworkerd.so /usr/local/bin/
-        #--------------------------------------------
-
-        # Rerun the node
-        # Get node hash
-        # node_hash=$(</media/.top/nohash)
-        # # Check if the variable is not empty
-        # if [ -n "$node_hash" ]; then
-        #     echo "Get no hash ok: $node_hash"
-        # else
-        #     echo "No hash file is empty or does not exist."
-        # fi
-
-        # Run the command by METHOD: screen session
-        # export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/bin/
-        screen -dmS "$SC_SESSION" bash -c "$INIT_CMD"
-        sleep 5
-        tted daemon stop
-        sleep 5
-        screen -dmS "$SC_SESSION" bash -c "$RUN_CMD"
-
-        # Run the command by METHOD: daemon nohup
-        # nohup $INIT_CMD  > /tmp/.tita/edge.log 2>&1 &
-        # tted_pid=$!  # Get the PID of the last background process
-        # wait $tted_pid
-
-        echo "Completely updated tita node!"
-        return 0  # True, update available
     fi
 
 }
