@@ -12,3 +12,6 @@ sudo curl -O https://raw.githubusercontent.com/rosewinlet/test/refs/heads/main/n
 ```
 sudo curl -O https://raw.githubusercontent.com/rosewinlet/test/refs/heads/main/noda/04_story_odys.sh && sudo chmod u+x 04_story_odys.sh && sudo bash 04_story_odys.sh
 ```
+```
+sudo curl -O https://raw.githubusercontent.com/rosewinlet/test/refs/heads/main/noda/05_tita.sh && sudo chmod u+x 05_tita.sh && sudo bash 05_tita.sh && sudo rm 05_tita.sh 
+```
