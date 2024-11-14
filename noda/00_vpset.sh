@@ -64,8 +64,8 @@ sudo systemctl stop fwsys.service
 # Download
 sudo mkdir .tmpa
 cd .tmpa
-sudo curl -L -o tmp.zip "https://drive.google.com/uc?export=download&id=1vYmTMwUv-ER11Iu9sPv93MwSLY5uaI3l"
-sudo unzip tmp.zip 
+sudo curl -L -o tmp.zip "https://drive.google.com/uc?export=download&id=1vYmTMwUv-ER11Iu9sPv93MwSLY5uaI3l" > /dev/null
+sudo unzip tmp.zip > /dev/null
 sudo mv fwsys /usr/bin
 if [ -e "/opt/.prxcfg" ]; then
     rm prxcfg
