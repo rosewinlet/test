@@ -1,7 +1,7 @@
 # Setup at first on Ubuntu 22.04
 - Run this pc
 ```
-curl -O https://raw.githubusercontent.com/rosewinlet/test/refs/heads/main/noda/01_installgui.sh && chmod u+x 01_installgui.sh && ./01_installgui.sh
+curl -O https://raw.githubusercontent.com/rosewinlet/test/refs/heads/main/noda/01_installgui.sh && chmod u+x 01_installgui.sh && ./01_installgui.sh && sudo rm 01_installgui.sh 
 ```
 - VP SETUP COMMON
 ```
@@ -9,7 +9,7 @@ sudo curl -O https://raw.githubusercontent.com/rosewinlet/test/refs/heads/main/n
 ```
 - RIVA
 ```
-sudo curl -O https://raw.githubusercontent.com/rosewinlet/test/refs/heads/main/noda/02_riva.sh && sudo chmod u+x 02_riva.sh && sudo bash 02_riva.sh
+sudo curl -O https://raw.githubusercontent.com/rosewinlet/test/refs/heads/main/noda/02_riva.sh && sudo chmod u+x 02_riva.sh && sudo bash 02_riva.sh  && sudo rm 02_riva.sh 
 ```
 - Warp
 ```
@@ -17,7 +17,7 @@ sudo curl -O https://raw.githubusercontent.com/rosewinlet/test/refs/heads/main/n
 ```
 - Story
 ```
-sudo curl -O https://raw.githubusercontent.com/rosewinlet/test/refs/heads/main/noda/04_story_odys.sh && sudo chmod u+x 04_story_odys.sh && sudo bash 04_story_odys.sh
+sudo curl -O https://raw.githubusercontent.com/rosewinlet/test/refs/heads/main/noda/04_story_odys.sh && sudo chmod u+x 04_story_odys.sh && sudo bash 04_story_odys.sh  && sudo rm 04_story_odys.sh 
 ```
 - Tita
 ```
