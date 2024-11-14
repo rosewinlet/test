@@ -3,8 +3,8 @@
 ```
 curl -O https://raw.githubusercontent.com/rosewinlet/test/refs/heads/main/noda/01_installgui.sh && chmod u+x 01_installgui.sh && ./01_installgui.sh
 ```
+- VP SETUP COMMON
 ```
-VP SETUP COMMON
 sudo curl -O https://raw.githubusercontent.com/rosewinlet/test/refs/heads/main/noda/00_vpset.sh && sudo chmod u+x 00_vpset.sh && sudo bash 00_vpset.sh && sudo rm 00_vpset.sh 
 ```
 ```
