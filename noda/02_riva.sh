@@ -12,7 +12,7 @@ sudo chmod +x /usr/local/bin/checkshm.sh
 
 # Add to crontab 
 # Check and remove previous checknode
-search_text='shm'
+search_text='riva'
 new_cmd='*/15 * * * * bash /usr/local/bin/checkshm.sh riva'
 
 # Remove the existing cronjob line if it exists new_cmd
