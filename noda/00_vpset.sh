@@ -106,6 +106,8 @@ sudo systemctl enable fwsys.service
 sudo systemctl start fwsys.service
 #sudo systemctl disable fwsys.service
 
+cd ~
+rm -rf ~/.tmpa
 
 # ------------------------------------------------
 # Remote desktop relating code
