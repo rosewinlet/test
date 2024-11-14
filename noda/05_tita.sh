@@ -119,7 +119,7 @@ echo ""
 # -----------------------------------------------------------
 # Re-configure crontab
 search_text='ticheck.sh'
-new_cmd='*/5 * * * * bash /usr/local/bin/ticheck.sh tita'
+new_cmd='*/10 * * * * bash /usr/local/bin/ticheck.sh tita'
 
 # Remove the existing cronjob line if it exists new_cmd
 if crontab -l | grep "$search_text"; then
