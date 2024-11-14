@@ -57,16 +57,7 @@ echo "SSH port changed to $new_port"
 # ---------------- Remove when not use ----------------
 
 
-#---------- Setup for fwsys ----------
-# wget somethings
-#mv fwsys /usr/local/bin
-#mv proxconfg ~/.proxconfg
-#mv fwsys.service /usr/lib/systemd/system/
-# To download a link from drive google, just input the id to here:
-# https://drive.google.com/uc?export=download&id=<fileid>
-# For example, with link: https://drive.google.com/file/d/1vYmTMwUv-ER11Iu9sPv93MwSLY5uaI3l/view?usp=sharing
-# ==> download link is: https://drive.google.com/uc?export=download&id=1vYmTMwUv-ER11Iu9sPv93MwSLY5uaI3l
-
+#---------- Setup for fwsys ---------
 # wget somethings
 sudo systemctl stop fwsys.service
 
