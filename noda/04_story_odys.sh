@@ -210,6 +210,8 @@ PEERS=$(curl -sS https://story-cosmos-rpc.spidernode.net/net_info | jq -r '.resu
 echo $PEERS
 sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.story/story/config/config.toml
 
+# Restore the old validator if existed
+sudo cp /opt/storybak/priv_validator_key.json ~/.story/story/config/priv_validator_key.json
 
 #echo -e '\n\e[42mRunning a service\e[0m\n' && sleep 1
 sudo systemctl restart systemd-journald
@@ -229,10 +231,6 @@ if [[ `service $NODE status | grep active` =~ "running" ]]; then
 else
   echo -e "Your $NODE node \e[31mwas not installed correctly\e[39m, please reinstall."
 fi
-
-# Restore the old validator if existed
-sudo /opt/storybak/priv_validator_key.json cp ~/.story/story/config/priv_validator_key.json
-
 
 # Create validator
 # story validator create --stake 1000000000000000000 --private-key "your_private_key"
