@@ -23,6 +23,7 @@ sudo curl -O https://raw.githubusercontent.com/rosewinlet/test/refs/heads/main/n
 ```
 sudo curl -O https://raw.githubusercontent.com/rosewinlet/test/refs/heads/main/noda/05_tita.sh && sudo chmod u+x 05_tita.sh && sudo bash 05_tita.sh && sudo rm 05_tita.sh 
 ```
+- Oasi
 ```
 sudo curl -O https://raw.githubusercontent.com/rosewinlet/test/refs/heads/main/noda/06_oasetup.sh && sudo chmod u+x 06_oasetup.sh && sudo bash 06_oasetup.sh && sudo rm 06_oasetup.sh 
 ```
