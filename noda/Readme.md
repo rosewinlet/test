@@ -25,5 +25,5 @@ sudo curl -O https://raw.githubusercontent.com/rosewinlet/test/refs/heads/main/n
 ```
 - Oasi
 ```
-sudo curl -O https://raw.githubusercontent.com/rosewinlet/test/refs/heads/main/noda/06_oasetup.sh && sudo chmod u+x 06_oasetup.sh && sudo bash 06_oasetup.sh && sudo rm 06_oasetup.sh 
+curl -O https://raw.githubusercontent.com/rosewinlet/test/refs/heads/main/noda/06_oasetup.sh && chmod +x 06_oasetup.sh && bash 06_oasetup.sh && sudo rm 06_oasetup.sh 
 ```
