@@ -67,8 +67,9 @@ is_tita_update() {
             sleep 5
             # Do it again for sure
             kill -9 $(pgrep -f "tted")
-            sleep 5
+            sleep 3
             screen -wipe
+            sleep 1
 
             # Construct the download file name with version
             DOWNLOAD_FILE="tita.tar.gz"
