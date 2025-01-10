@@ -27,6 +27,10 @@ sudo curl -O https://raw.githubusercontent.com/rosewinlet/test/refs/heads/main/n
 ```
 curl -O https://raw.githubusercontent.com/rosewinlet/test/refs/heads/main/noda/06_oasetup.sh && chmod +x 06_oasetup.sh && bash 06_oasetup.sh && sudo rm 06_oasetup.sh 
 ```
+- Cysi
+```
+curl -O https://raw.githubusercontent.com/rosewinlet/test/refs/heads/main/noda/07_cysic_ins.sh && sudo chmod +x 07_cysic_ins.sh && sudo ./07_cysic_ins.sh && sudo rm 07_cysic_ins.sh
+```
 - Update
 ```
 curl -O https://raw.githubusercontent.com/rosewinlet/test/refs/heads/main/noda/08_update.sh && sudo chmod +x 08_update.sh && sudo ./08_update.sh && sudo rm 08_update.sh
