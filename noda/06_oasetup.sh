@@ -59,12 +59,15 @@ else
     echo \"\$(date): Oasis.AppImage is already running with PID: \$MAIN_PID\" >> \"\$LOG_FILE\"
 fi
 
-# Check if the time is in (0:10AM ~ 0:27AM) to remove log_file everyday
+# Check if the time is in (0:10AM ~ 0:27AM) to remove log_file everyday and restart daily
 cur_hour=\$(date +%-H)
 cur_min=\$(date +%-M)
 
 if [[ "\$cur_hour" -eq 0 && "\$cur_min" -ge 10 ]] || [[ "\$cur_hour" -eq 0 && "\$cur_min" -lt 27 ]]; then
     rm \$LOG_FILE
+    kill \$(pgrep -f "Oasis.AppImage")
+    sleep 18
+    oasismon.sh
 fi
 "
 # Create the monitor script and write content
