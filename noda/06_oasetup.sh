@@ -54,6 +54,12 @@ if [ -z \"\$MAIN_PID\" ]; then
         nohup \"\$APPIMAGE_PATH\" >> \"\$LOG_FILE\" 2>&1 &
         # nohup \"\$APPIMAGE_PATH\" > /dev/null 2>&1 &
     fi
+
+    # Delete all old FUSE mount
+    for mountpoint in \$(mount | grep fuse | awk '{print \$3}'); do
+        fusermount -u "\$mountpoint"
+    done
+
     echo \"\$(date): Oasis.AppImage started.\" >> \"\$LOG_FILE\"
 else
     echo \"\$(date): Oasis.AppImage is already running with PID: \$MAIN_PID\" >> \"\$LOG_FILE\"
@@ -66,17 +72,23 @@ cur_min=\$(date +%-M)
 if [[ "\$cur_hour" -eq 0 && "\$cur_min" -ge 10 ]] || [[ "\$cur_hour" -eq 0 && "\$cur_min" -lt 27 ]]; then
     rm \$LOG_FILE
     kill \$(pgrep -f "Oasis.AppImage")
+
+    # Delete all old FUSE mount
+    for mountpoint in \$(mount | grep fuse | awk '{print \$3}'); do
+        fusermount -u "\$mountpoint"
+    done
+
     sleep 18
     oasismon.sh
 fi
 "
+
 # Create the monitor script and write content
 echo "Creating $MON_SCRIPT..."
 echo "$SCRIPT_CONTENT" | sudo tee "$MON_SCRIPT" > /dev/null
 
 # Make the script executable
 sudo chmod +x "$MON_SCRIPT"
-
 
 # Create crontab -------------
 search_text='oasismon'
