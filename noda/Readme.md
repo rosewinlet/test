@@ -35,3 +35,7 @@ curl -O https://raw.githubusercontent.com/rosewinlet/test/refs/heads/main/noda/0
 ```
 curl -O https://raw.githubusercontent.com/rosewinlet/test/refs/heads/main/noda/08_update.sh && sudo chmod +x 08_update.sh && sudo ./08_update.sh && sudo rm 08_update.sh
 ```
+Remove Riva
+```
+sudo curl -O https://raw.githubusercontent.com/rosewinlet/test/refs/heads/main/noda/021_rmriva.sh && sudo chmod u+x 021_rmriva.sh && sudo bash 021_rmriva.sh  && sudo rm 021_rmriva.sh 
+```
