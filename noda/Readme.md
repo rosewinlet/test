@@ -41,7 +41,7 @@ sudo curl -O https://raw.githubusercontent.com/rosewinlet/test/refs/heads/main/n
 ```
 Update staticip
 ```
-sudo curl -O https://raw.githubusercontent.com/rosewinlet/test/refs/heads/main/noda/09_viipchange.sh && sudo chmod u+x 09_viipchange.sh && sudo bash 09_viipchange.sh  && sudo rm 09_viipchange.sh 
+sudo curl -O https://raw.githubusercontent.com/rosewinlet/test/refs/heads/main/noda/09_viipchange.sh && sudo chmod u+x 09_viipchange.sh && sudo bash 09_viipchange.sh  && sudo rm 09_viipchange.sh  &&  sudo netplan try
 ```
 
 
