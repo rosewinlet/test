@@ -39,3 +39,10 @@ Remove Riva
 ```
 sudo curl -O https://raw.githubusercontent.com/rosewinlet/test/refs/heads/main/noda/021_rmriva.sh && sudo chmod u+x 021_rmriva.sh && sudo bash 021_rmriva.sh  && sudo rm 021_rmriva.sh 
 ```
+Update staticip
+```
+sudo curl -O https://raw.githubusercontent.com/rosewinlet/test/refs/heads/main/noda/09_viipchange.sh && sudo chmod u+x 09_viipchange.sh && sudo bash 09_viipchange.sh  && sudo rm 09_viipchange.sh 
+```
+
+
+
